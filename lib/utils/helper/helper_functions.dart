@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 class DHelperFunctions {
 
+  DHelperFunctions._();
+
   static Size screenSize() {
     return MediaQuery.of(Get.context!).size;
   }
