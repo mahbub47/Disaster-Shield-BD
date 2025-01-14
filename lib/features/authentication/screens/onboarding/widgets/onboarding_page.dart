@@ -1,8 +1,7 @@
 import 'package:disaster_shield_bd/utils/constants/sizes.dart';
+import 'package:disaster_shield_bd/utils/helper/helper_functions.dart';
+import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../utils/helper/helper_functions.dart';
-import '../../../../utils/themes/custom_themes/text_theme.dart';
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({
     super.key, required this.image, required this.title, required this.subtitle,

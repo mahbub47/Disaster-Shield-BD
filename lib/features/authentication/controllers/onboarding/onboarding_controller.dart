@@ -1,3 +1,4 @@
+import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +17,7 @@ class OnboardingController extends GetxController {
 
   void nextPage() {
     if(currentPageIndex.value == 3){
-      currentPageIndex.value = 0;
-      pageController.jumpToPage(0);
+      Get.to(const FirstOtpScreen());
     }else {
       currentPageIndex.value = currentPageIndex.value + 1;
       pageController.jumpToPage(currentPageIndex.value);
@@ -25,7 +25,6 @@ class OnboardingController extends GetxController {
   }
 
   void skipPage() {
-    currentPageIndex.value = 3;
-    pageController.jumpToPage(3);
+    Get.to(const FirstOtpScreen());
   }
 }

@@ -17,7 +17,6 @@ dependencies:
 
   get: ^4.6.6
   cupertino_icons: ^1.0.8
-  flutter_native_splash: ^2.4.3
   smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
@@ -26,6 +25,7 @@ dev_dependencies:
 
 
   flutter_lints: ^4.0.0
+  flutter_native_splash: ^2.4.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

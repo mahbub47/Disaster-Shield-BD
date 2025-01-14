@@ -1,11 +1,11 @@
-import 'package:disaster_shield_bd/authentication/screens/onboarding/onboarding_screen.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/onboarding_screen.dart';
+import 'package:disaster_shield_bd/utils/constants/images.dart';
+import 'package:disaster_shield_bd/utils/constants/sizes.dart';
+import 'package:disaster_shield_bd/utils/constants/textString.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
+import 'package:disaster_shield_bd/utils/themes/custom_themes/elevated_button_theme.dart';
+import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/constants/images.dart';
-import '../../../utils/constants/sizes.dart';
-import '../../../utils/constants/textString.dart';
-import '../../../utils/themes/custom_themes/elevated_button_theme.dart';
-import '../../../utils/themes/custom_themes/text_theme.dart';
 import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -42,15 +42,17 @@ class WelcomeScreen extends StatelessWidget {
         ),
         Positioned(
           bottom: DDeviceUtils.getBottomNavigationBarHeight() + 10,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: ElevatedButton(
-              style: DElevatedButtonTheme.lightElevatedButtonTheme.style,
-              onPressed: () => {
-                Get.off(const OnboardingScreen()),
-              },
-              child: const Text("Get Started"),
+          child: SizedBox(
+            width: DDeviceUtils.getScreenWidth(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 56),
+              child: ElevatedButton(
+                style: DElevatedButtonTheme.lightElevatedButtonTheme.style,
+                onPressed: () => {
+                  Get.off(const OnboardingScreen()),
+                },
+                child: const Text("Get Started"),
+              ),
             ),
           ),
         )

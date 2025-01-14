@@ -13,23 +13,23 @@ class DInputFieldTheme {
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     floatingLabelStyle: const TextStyle().copyWith(color: DColors.gray, fontSize: DSizes.fontSm),
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       borderSide: const BorderSide(width: 1, color: DColors.accent),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       borderSide: const BorderSide(width: 1, color: DColors.accent),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(width: 1, color: DColors.dark),
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(width: 1, color: DColors.gray),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       borderSide: const BorderSide(width: 1, color: DColors.redAlert),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       borderSide: const BorderSide(width: 1, color: DColors.warningAlert),
     ),
   );

@@ -7,5 +7,6 @@ class Dimages {
   static const String onboardingImage04 = "assets/images/onboarding04.png";
 
   static const String mainLogo = "assets/logo/logo.png";
+  static const String mainLogoTransparent = "assets/logo/logo_transparent.png";
 
 }

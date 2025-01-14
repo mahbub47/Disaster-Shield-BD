@@ -1,7 +1,7 @@
-import 'package:disaster_shield_bd/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
-import 'package:disaster_shield_bd/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
-import 'package:disaster_shield_bd/authentication/screens/onboarding/widgets/onboarding_page.dart';
-import 'package:disaster_shield_bd/authentication/screens/onboarding/widgets/onboarding_skip_button.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_skip_button.dart';
 import 'package:disaster_shield_bd/utils/constants/images.dart';
 import 'package:disaster_shield_bd/utils/constants/textString.dart';
 import 'package:flutter/material.dart';

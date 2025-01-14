@@ -1,8 +1,8 @@
-import 'package:disaster_shield_bd/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:disaster_shield_bd/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:disaster_shield_bd/utils/constants/colors.dart';
+import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/device/device_utility.dart';
 
 class OnboardingDotNavigation extends StatelessWidget {
   const OnboardingDotNavigation({

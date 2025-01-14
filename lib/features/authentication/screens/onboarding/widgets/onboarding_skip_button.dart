@@ -1,8 +1,8 @@
-import 'package:disaster_shield_bd/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:disaster_shield_bd/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:disaster_shield_bd/utils/constants/sizes.dart';
+import 'package:disaster_shield_bd/utils/device/device_utility.dart';
+import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
-import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/device/device_utility.dart';
-import '../../../../utils/themes/custom_themes/text_theme.dart';
 class OnboardingSkipButton extends StatelessWidget {
   const OnboardingSkipButton({
     super.key,
