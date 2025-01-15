@@ -18,6 +18,7 @@ dependencies:
   get: ^4.6.6
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^1.2.0+3
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

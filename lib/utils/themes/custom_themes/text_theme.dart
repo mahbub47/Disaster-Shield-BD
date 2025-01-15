@@ -12,6 +12,6 @@ class DTextTheme {
 
     bodyMedium: const TextStyle().copyWith(fontSize: DSizes.fontMd, fontWeight: FontWeight.w400, color: DColors.darkText),
 
-    labelSmall: const TextStyle().copyWith(fontSize: DSizes.fontSm, fontWeight: FontWeight.w400, color: DColors.gray),
+    labelLarge: const TextStyle().copyWith(fontSize: DSizes.fontMd, fontWeight: FontWeight.w500, color: DColors.gray),
   );
 }

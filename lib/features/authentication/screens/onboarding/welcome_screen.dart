@@ -49,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
               child: ElevatedButton(
                 style: DElevatedButtonTheme.lightElevatedButtonTheme.style,
                 onPressed: () => {
-                  Get.off(const OnboardingScreen()),
+                  Get.off(() => const OnboardingScreen()),
                 },
                 child: const Text("Get Started"),
               ),

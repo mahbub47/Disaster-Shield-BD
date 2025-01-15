@@ -18,11 +18,11 @@ class DInputFieldTheme {
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(width: 1, color: DColors.accent),
+      borderSide: const BorderSide(width: 2, color: DColors.accent),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(width: 1, color: DColors.gray),
+      borderSide: const BorderSide(width: 2, color: DColors.gray),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(8),

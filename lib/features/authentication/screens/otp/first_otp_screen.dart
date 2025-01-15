@@ -1,7 +1,8 @@
-import 'package:disaster_shield_bd/common/clip_path/curved_edges.dart';
-import 'package:disaster_shield_bd/utils/constants/colors.dart';
-import 'package:disaster_shield_bd/utils/device/device_utility.dart';
-import 'package:disaster_shield_bd/utils/themes/custom_themes/input_field_theme.dart';
+import 'package:disaster_shield_bd/common/widgets/common_bg_shape.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/otp/widgets/otp_get_otp_button.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/otp/widgets/otp_phone_input_field.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/otp/widgets/otp_phone_label.dart';
+import 'package:disaster_shield_bd/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class FirstOtpScreen extends StatelessWidget {
@@ -9,24 +10,24 @@ class FirstOtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return const Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Stack(
         children: [
-          ClipPath(
-            clipper: DCustomCurveEdge(),
-            child: Container(
-              height: DDeviceUtils.getScreenHeight() * 0.4,
-              width: DDeviceUtils.getScreenWidth(),
-              color: DColors.primary,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CommonBGShape(),
+              SizedBox( height: DSizes.spaceBtwSection * 2),
+              OtpPhoneInputField(),
+              SizedBox(height: DSizes.spaceBtwItems,),
+              OTPPhoneLabel(),
+            ],
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              fillColor: DColors.darkText,
-            ),
-          )
-        ],
+          GetOTPButton(buttonText: "Get OTP",)
+        ]
       ),
     );
   }
 }
+
