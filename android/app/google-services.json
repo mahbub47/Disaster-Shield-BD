@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "977548831870",
+    "project_id": "disaster-shield-bd",
+    "storage_bucket": "disaster-shield-bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977548831870:android:7375d7d133066f18ddfc2f",
+        "android_client_info": {
+          "package_name": "com.mahbub.disastershieldbd.disaster_shield_bd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk8dqRWWlyWs6ylGCHrgv1nDlKK13Z7sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

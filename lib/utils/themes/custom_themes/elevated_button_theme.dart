@@ -13,7 +13,7 @@ class DElevatedButtonTheme {
       disabledForegroundColor: DColors.dark,
       disabledBackgroundColor: DColors.gray,
       side: const BorderSide(color: DColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 100),
+      padding: const EdgeInsets.symmetric(vertical: 14),
       textStyle: const TextStyle(fontSize: DSizes.fontLg, color: DColors.lightText, fontWeight: FontWeight.w500),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
     ),

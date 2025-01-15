@@ -19,6 +19,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^1.2.0+3
   iconsax: ^0.0.8
+  firebase_core: ^3.10.0
 
 dev_dependencies:
   flutter_test:
