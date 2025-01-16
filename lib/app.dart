@@ -30,9 +30,7 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       theme: DappTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: AppBar(),
-          body: const WelcomeScreen()),
+      home: const WelcomeScreen(),
     );
   }
 }

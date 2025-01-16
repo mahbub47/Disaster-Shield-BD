@@ -15,48 +15,50 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(56),
-          child: Column(
-            children: [
-              Image(
-                width: DDeviceUtils.getScreenWidth() * 0.8,
-                  image: const AssetImage(Dimages.mainLogo)),
-              Text(
-                DText.welcomeTitle,
-                style: DTextTheme.lightTextTheme.headlineLarge,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: DSizes.defaultSpace,
-              ),
-              Text(
-                DText.welcomeSubTitle,
-                style: DTextTheme.lightTextTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: DDeviceUtils.getBottomNavigationBarHeight() + 10,
-          child: SizedBox(
-            width: DDeviceUtils.getScreenWidth(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 56),
-              child: ElevatedButton(
-                style: DElevatedButtonTheme.lightElevatedButtonTheme.style,
-                onPressed: () => {
-                  Get.off(() => const OnboardingScreen()),
-                },
-                child: const Text("Get Started"),
-              ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(56),
+            child: Column(
+              children: [
+                Image(
+                  width: DDeviceUtils.getScreenWidth() * 0.8,
+                    image: const AssetImage(Dimages.mainLogo)),
+                Text(
+                  DText.welcomeTitle,
+                  style: DTextTheme.lightTextTheme.headlineLarge,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: DSizes.defaultSpace,
+                ),
+                Text(
+                  DText.welcomeSubTitle,
+                  style: DTextTheme.lightTextTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-        )
-      ],
+          Positioned(
+            bottom: DDeviceUtils.getBottomNavigationBarHeight() + 10,
+            child: SizedBox(
+              width: DDeviceUtils.getScreenWidth(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 56),
+                child: ElevatedButton(
+                  style: DElevatedButtonTheme.lightElevatedButtonTheme.style,
+                  onPressed: () => {
+                    Get.off(() => const OnboardingScreen()),
+                  },
+                  child: const Text("Get Started"),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
