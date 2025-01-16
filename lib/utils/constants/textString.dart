@@ -14,6 +14,9 @@ class DText {
   static const String welcomeSubTitle = "Empowering you to stay safe and prepared for any emergency.";
 
 
-  static const String otpPhoneLabel = "We will send One Time password\n on this phone number";
+  static const String otpPhoneLabel = "We will send One Time password on this phone number";
+
+
+  static const String userDetailsScreenTitle = "User information";
 
 }

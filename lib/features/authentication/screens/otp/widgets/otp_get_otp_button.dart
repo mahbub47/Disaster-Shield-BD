@@ -1,13 +1,13 @@
+import 'package:disaster_shield_bd/features/authentication/screens/otp/second_otp_screen.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GetOTPButton extends StatelessWidget {
   const GetOTPButton({
     super.key,
-    required this.buttonText
   });
 
-  final String buttonText;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -17,7 +17,7 @@ class GetOTPButton extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 56),
               child: ElevatedButton(
-                  onPressed: () {}, child: const Text("Get OTP")),
+                  onPressed: () {Get.to(() => const SecondOtpScreen());}, child: const Text("Get OTP")),
             )));
   }
 }
