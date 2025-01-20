@@ -1,7 +1,7 @@
 import 'package:disaster_shield_bd/features/authentication/screens/user_details/widgets/user_details_submit_button.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/constants/sizes.dart';
-import 'package:disaster_shield_bd/utils/constants/textString.dart';
+import 'package:disaster_shield_bd/utils/constants/text_string.dart';
 import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
 

@@ -50,7 +50,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCk8dqRWWlyWs6ylGCHrgv1nDlKK13Z7sc',
+    apiKey: 'AIzaSyD99P-QPeTV46mePmcOpXJqXtuxt5YNdVc',
     appId: '1:977548831870:android:7375d7d133066f18ddfc2f',
     messagingSenderId: '977548831870',
     projectId: 'disaster-shield-bd',
@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAx4EeiJT8iK46OYvnVa_hqRUxgHiYYAzo',
+    apiKey: 'AIzaSyBL62H-UEJzAIebdAke1M4sU9AqpVkUuMc',
     appId: '1:977548831870:ios:161060543fa97489ddfc2f',
     messagingSenderId: '977548831870',
     projectId: 'disaster-shield-bd',

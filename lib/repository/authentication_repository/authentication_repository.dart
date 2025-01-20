@@ -8,6 +8,7 @@ class AthenticationRepository extends GetxController {
 
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
+  RxString verificationid = ''.obs;
 
   @override
   void onReady() {
@@ -17,6 +18,40 @@ class AthenticationRepository extends GetxController {
   }
 
   _setScreen(User? user) {
-    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const UserDetailsScreen());
+    user == null
+        ? Get.offAll(() => const WelcomeScreen())
+        : Get.offAll(() => const UserDetailsScreen());
   }
+
+  Future<void> phonenumberAuthentication(String phone) async {
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phone,
+      verificationCompleted: (credential) async {
+        await _auth.signInWithCredential(credential);
+      },
+      codeSent: (verficationid, resendToken) {
+        verificationid.value = verficationid;
+      },
+      codeAutoRetrievalTimeout: (verificationid) {
+        this.verificationid.value = verificationid;
+      },
+      verificationFailed: (e) {
+        if (e.code == 'invalid-phone-number') {
+          Get.snackbar('Error', 'invalid phone number');
+        } else {
+          Get.snackbar('Error', 'Something went wrong');
+        }
+      },
+    );
+  }
+
+  Future<bool> verifyOtp(String otp) async {
+    var credential = await _auth.signInWithCredential(
+        PhoneAuthProvider.credential(
+            verificationId: verificationid.value, smsCode: otp));
+
+    return credential.user != null ? true : false;
+  }
+
+  Future<void> logout() async => await _auth.signOut();
 }

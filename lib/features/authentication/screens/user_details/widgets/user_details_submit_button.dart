@@ -1,5 +1,8 @@
+import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/emergency_contact_add.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/onboarding/welcome_screen.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UserDetailsSubmitButton extends StatelessWidget {
   const UserDetailsSubmitButton({
@@ -15,7 +18,9 @@ class UserDetailsSubmitButton extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 56),
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.offAll(() => const EmergencyContactAdd());
+                },
                 child: const Text(
                   "Next",
                 )),

@@ -3,7 +3,7 @@ import 'package:disaster_shield_bd/features/authentication/screens/onboarding/wi
 import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/onboarding/widgets/onboarding_skip_button.dart';
 import 'package:disaster_shield_bd/utils/constants/images.dart';
-import 'package:disaster_shield_bd/utils/constants/textString.dart';
+import 'package:disaster_shield_bd/utils/constants/text_string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
