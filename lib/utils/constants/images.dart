@@ -11,5 +11,6 @@ class Dimages {
 
   static const String phoneNumberScreenImage = "assets/images/phonenumberscreen.png";
   static const String otpScreenImage = "assets/images/otpscreen.png";
+  static const String homwScreenImage = "assets/images/homeimage.png";
 
 }

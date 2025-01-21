@@ -13,7 +13,7 @@ class CommonBGShape extends StatelessWidget {
     return ClipPath(
       clipper: DCustomCurveEdge(),
       child: Container(
-        height: DDeviceUtils.getScreenHeight() * 0.4,
+        height: DDeviceUtils.getScreenHeight() * 0.25,
         width: DDeviceUtils.getScreenWidth(),
         color: DColors.primary,
       ),
