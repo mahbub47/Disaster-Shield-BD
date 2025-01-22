@@ -6,6 +6,8 @@ import 'package:disaster_shield_bd/utils/themes/custom_themes/input_field_theme.
 import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_themes/navigation_bar_theme.dart';
+
 class DappTheme {
   DappTheme._();
 
@@ -19,5 +21,6 @@ class DappTheme {
     appBarTheme: DAppbarTheme.lightAppbarTheme,
     checkboxTheme: DCheckBoxTheme.lightCheckBoxTheme,
     inputDecorationTheme: DInputFieldTheme.lightInputFieldTheme,
+    navigationBarTheme: DNavigationBarTheme.lightNavigationBarTheme,
   );
 }

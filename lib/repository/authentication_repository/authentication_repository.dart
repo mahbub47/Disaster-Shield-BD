@@ -1,10 +1,15 @@
 import 'package:disaster_shield_bd/features/authentication/screens/onboarding/welcome_screen.dart';
-import 'package:disaster_shield_bd/features/authentication/screens/user_details/user_details_screen.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
+import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AthenticationRepository extends GetxController {
   static AthenticationRepository get instance => Get.find();
+
+  final deviceStorage = GetStorage();
 
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
@@ -12,15 +17,19 @@ class AthenticationRepository extends GetxController {
 
   @override
   void onReady() {
+    FlutterNativeSplash.remove();
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setScreen);
   }
 
   _setScreen(User? user) {
+    deviceStorage.writeIfNull('isFirstTime', true);
     user == null
-        ? Get.offAll(() => const WelcomeScreen())
-        : Get.offAll(() => const UserDetailsScreen());
+        ? deviceStorage.read('isFirstTime') != true
+        ? Get.offAll(() => const FirstOtpScreen())
+        : Get.offAll(() => const WelcomeScreen())
+        : Get.offAll(() => const BottomNavigationMenu());
   }
 
   Future<void> phonenumberAuthentication(String phone) async {
@@ -53,5 +62,8 @@ class AthenticationRepository extends GetxController {
     return credential.user != null ? true : false;
   }
 
-  Future<void> logout() async => await _auth.signOut();
+  Future<void> logout() async {
+    deviceStorage.write('isFirstTime', true);
+    await _auth.signOut();
+  }
 }
