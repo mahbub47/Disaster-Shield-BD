@@ -8,6 +8,7 @@ class Assets {
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
   static const String imagesHomeimage = 'assets/images/homeimage.png';
+  static const String imagesLoginimage = 'assets/images/loginimage.png';
   static const String imagesOnboarding01 = 'assets/images/onboarding01.png';
   static const String imagesOnboarding02 = 'assets/images/onboarding02.png';
   static const String imagesOnboarding03 = 'assets/images/onboarding03.png';

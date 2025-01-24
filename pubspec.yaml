@@ -18,12 +18,14 @@ dependencies:
   flutter_native_splash: ^2.4.3
   get: ^4.6.6
   get_storage: ^2.1.1
+  connectivity_plus: ^6.1.2
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^1.2.0+3
   iconsax: ^0.0.8
   firebase_core: ^3.10.0
   flutter_otp_text_field: ^1.4.0+2
   firebase_auth: ^5.4.0
+  cloud_firestore: ^5.6.2
 
 dev_dependencies:
   flutter_test:

@@ -1,12 +1,10 @@
-import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/emergency_contact_add.dart';
-import 'package:disaster_shield_bd/features/authentication/screens/onboarding/welcome_screen.dart';
-import 'package:disaster_shield_bd/repository/authentication_repository/authentication_repository.dart';
+import 'package:disaster_shield_bd/features/authentication/controllers/user_details/user_details_controller.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class UserDetailsSubmitButton extends StatelessWidget {
-  const UserDetailsSubmitButton({
+  final controller = UserDetailsController.instance;
+  UserDetailsSubmitButton({
     super.key,
   });
 
@@ -20,9 +18,7 @@ class UserDetailsSubmitButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 56),
             child: ElevatedButton(
                 onPressed: () {
-                  Get.offAll(() => const EmergencyContactAdd());
-                  // AthenticationRepository.instance.logout();
-                  // Get.offAll(() => const WelcomeScreen());
+                  controller.signUp();
                 },
                 child: const Text(
                   "Next",

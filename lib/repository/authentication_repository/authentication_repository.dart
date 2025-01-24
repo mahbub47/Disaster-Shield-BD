@@ -2,6 +2,7 @@ import 'package:disaster_shield_bd/features/authentication/screens/onboarding/we
 import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
 import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,6 +14,7 @@ class AthenticationRepository extends GetxController {
 
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
+  late final Rx<UserCredential> authuser;
   RxString verificationid = ''.obs;
 
   @override
@@ -33,10 +35,11 @@ class AthenticationRepository extends GetxController {
   }
 
   Future<void> phonenumberAuthentication(String phone) async {
-    await _auth.verifyPhoneNumber(
+      await _auth.verifyPhoneNumber(
       phoneNumber: phone,
       verificationCompleted: (credential) async {
-        await _auth.signInWithCredential(credential);
+        authuser = Rx<UserCredential>(await _auth.signInWithCredential(credential));
+        print(authuser);
       },
       codeSent: (verficationid, resendToken) {
         verificationid.value = verficationid;
@@ -62,8 +65,27 @@ class AthenticationRepository extends GetxController {
     return credential.user != null ? true : false;
   }
 
+  //Phone authentication logout
   Future<void> logout() async {
     deviceStorage.write('isFirstTime', true);
     await _auth.signOut();
+  }
+
+
+  //Register with Email and Password
+  Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
+    try{
+      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch(e) {
+      throw "Firebase Auth Exception";
+    } on FirebaseException catch(e) {
+      throw "Firebase Exception";
+    } on FormatException catch(_){
+      throw "Format Exception";
+    } on PlatformException catch(e) {
+      throw "Platform Exception";
+    } catch (e) {
+      throw "Something went wrong";
+    }
   }
 }
