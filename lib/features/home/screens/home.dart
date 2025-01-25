@@ -1,4 +1,5 @@
 import 'package:disaster_shield_bd/common/widgets/common_bg_shape.dart';
+import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_item_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_profile_widget.dart';
@@ -80,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                         label: "Logout",
                         ontap: () {
                           AthenticationRepository.instance.logout();
-                          Get.offAll(() => const FirstOtpScreen());
+                          Get.offAll(() => const LoginWithEmailScreen());
                         },
                       ),
                       const Divider(),

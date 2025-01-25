@@ -17,6 +17,7 @@ Future<void> main() async {
 
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((onValue) => Get.put(AthenticationRepository()));
+
   Get.put(OtpController());
 
   runApp(const MyApp());
