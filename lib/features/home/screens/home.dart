@@ -1,6 +1,7 @@
 import 'package:disaster_shield_bd/common/widgets/common_bg_shape.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
+import 'package:disaster_shield_bd/features/emergency_checklist/controllers/emergency_checklist_controller.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_item_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_profile_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_screen_features_box.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final checklistController = ChecklistController.instance;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -81,6 +83,7 @@ class HomeScreen extends StatelessWidget {
                         label: "Logout",
                         ontap: () {
                           AthenticationRepository.instance.logout();
+                          checklistController.resetChecklistToDefault();
                           Get.offAll(() => const LoginWithEmailScreen());
                         },
                       ),

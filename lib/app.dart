@@ -1,3 +1,4 @@
+import 'package:disaster_shield_bd/bindings/all_controller_binding.dart';
 import 'package:disaster_shield_bd/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GetMaterialApp(
+      initialBinding: AllControllerBinding(),
       title: "Disaster Shield BD",
       theme: DappTheme.lightTheme,
       debugShowCheckedModeBanner: false,

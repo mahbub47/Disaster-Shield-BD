@@ -1,3 +1,4 @@
+import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/otp/first_otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class OnboardingController extends GetxController {
   void nextPage() {
     if(currentPageIndex.value == 3){
       deviceStorage.write('isFirstTime', false);
-      Get.offAll(() => const FirstOtpScreen());
+      Get.offAll(() => const LoginWithEmailScreen());
     }else {
       currentPageIndex.value = currentPageIndex.value + 1;
       pageController.jumpToPage(currentPageIndex.value);
@@ -30,6 +31,6 @@ class OnboardingController extends GetxController {
 
   void skipPage() {
     deviceStorage.write('isFirstTime', false);
-    Get.offAll(() => const FirstOtpScreen());
+    Get.offAll(() => const LoginWithEmailScreen());
   }
 }

@@ -1,7 +1,9 @@
+import 'package:disaster_shield_bd/features/emergency_checklist/screens/emergency_checklist_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_feature_card.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class HomeScreenFeaturesBox extends StatelessWidget {
@@ -49,7 +51,7 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     HomepageFeatureCard(
                       featureName: "Emergency\nchecklist",
                       icon: Iconsax.tick_square,
-                      ontap: () {},
+                      ontap: () {Get.to(() => const EmergencyChecklistScreen()); },
                     ),
                     HomepageFeatureCard(
                       featureName: "Evacuation\nguide",
