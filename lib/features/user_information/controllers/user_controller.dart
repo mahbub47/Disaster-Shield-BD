@@ -1,12 +1,11 @@
 import 'package:disaster_shield_bd/features/authentication/models/user_model.dart';
 import 'package:disaster_shield_bd/repository/user/user_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
   Rx<UserModel> user = UserModel.empty().obs;
-  final userRepository = Get.put(UserRepository());
+  final userRepository = UserRepository.instance;
 
   @override
   void onInit() {

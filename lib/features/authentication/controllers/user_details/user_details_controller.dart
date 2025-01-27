@@ -45,7 +45,7 @@ class UserDetailsController extends GetxController {
         emergencyMessage: '',
       );
 
-      final userRepository = Get.put(UserRepository());
+      final userRepository = UserRepository.instance;
       await userRepository.saveUserRecords(newUser);
 
       FullScreenLoader.stopLoading();

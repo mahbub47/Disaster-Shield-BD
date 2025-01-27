@@ -1,13 +1,13 @@
-import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
+import 'package:disaster_shield_bd/features/authentication/controllers/add_emergency_contact/add_emergency_contact_controller.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AddEmergencySubmitButton extends StatelessWidget {
   const AddEmergencySubmitButton({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = AddEmergencyContactController.instance;
     return Positioned(
       bottom: DDeviceUtils.getBottomNavigationBarHeight() + 30,
       child: SizedBox(
@@ -16,7 +16,7 @@ class AddEmergencySubmitButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 56),
             child: ElevatedButton(
                 onPressed: () {
-                  Get.offAll(() => const BottomNavigationMenu());
+                  controller.addEmergencyContact();
                 },
                 child: const Text(
                   "Save",

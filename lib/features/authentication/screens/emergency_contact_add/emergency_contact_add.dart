@@ -1,9 +1,11 @@
+import 'package:disaster_shield_bd/features/authentication/controllers/add_emergency_contact/add_emergency_contact_controller.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/widgets/add_emergency_submit_button.dart';
 import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/constants/sizes.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
+import 'package:disaster_shield_bd/utils/validator/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,7 @@ class EmergencyContactAdd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(AddEmergencyContactController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -20,6 +23,7 @@ class EmergencyContactAdd extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(horizontal: DSizes.defaultSpace),
             child: Form(
+              key: controller.addEmergencyContactFormKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -28,7 +32,7 @@ class EmergencyContactAdd extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      "Your phone",
+                      "Emergency contact",
                       style: DTextTheme.lightTextTheme.headlineLarge,
                       textAlign: TextAlign.center,
                     ),
@@ -37,13 +41,15 @@ class EmergencyContactAdd extends StatelessWidget {
                     height: 50,
                   ),
                   Text(
-                    "Emergency contact",
+                    "Your phone",
                     style: DTextTheme.lightTextTheme.labelMedium,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   TextFormField(
+                    validator: (value) => DValidator.validatePhoneNumber(value),
+                    controller: controller.userPhone,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                           hintText: "Enter phone number",
@@ -60,6 +66,8 @@ class EmergencyContactAdd extends StatelessWidget {
                     height: 5,
                   ),
                   TextFormField(
+                    validator: (value) => DValidator.validatePhoneNumber(value),
+                    controller: controller.emergencyPhone,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                           hintText: "Enter phone number",
@@ -76,6 +84,8 @@ class EmergencyContactAdd extends StatelessWidget {
                     height: 5,
                   ),
                   TextFormField(
+                    validator: (value) => DValidator.validateEmptiTextField("Message", value),
+                    controller: controller.emergencyMessage,
                       maxLines: 3,
                       keyboardType: TextInputType.streetAddress,
                       decoration: const InputDecoration(
@@ -94,7 +104,7 @@ class EmergencyContactAdd extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 120),
                   child: TextButton(
-                      onPressed: () {Get.to(() => const BottomNavigationMenu()); },
+                      onPressed: () {Get.offAll(() => const BottomNavigationMenu()); },
                       child: Text(
                         "Skip",
                         style: DTextTheme.lightTextTheme.labelMedium,
