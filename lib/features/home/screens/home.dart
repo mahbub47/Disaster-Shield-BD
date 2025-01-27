@@ -4,6 +4,7 @@ import 'package:disaster_shield_bd/features/authentication/screens/login_with_em
 import 'package:disaster_shield_bd/features/emergency_checklist/controllers/emergency_checklist_controller.dart';
 import 'package:disaster_shield_bd/features/home/controllers/delete_user_controller.dart';
 import 'package:disaster_shield_bd/features/home/screens/update_emergency_contact_screen.dart';
+import 'package:disaster_shield_bd/features/home/screens/volunteer_registration_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_item_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_profile_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_screen_features_box.dart';
@@ -88,9 +89,9 @@ class HomeScreen extends StatelessWidget {
                         ontap: () {},
                       ),
                       DrawerItemWidget(
-                        icon: Iconsax.password_check,
-                        label: "Change password",
-                        ontap: () {},
+                        icon: Icons.handshake_outlined,
+                        label: "Become a volunteer",
+                        ontap: () {Get.to(() => const VolunteerRegistrationScreen());},
                       ),
                       const Divider(),
                       DrawerItemWidget(

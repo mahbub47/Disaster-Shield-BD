@@ -64,4 +64,19 @@ class DValidator {
 
     return null;
   }
+
+  static String? validateNID(String? value){
+    if (value == null || value.isEmpty) {
+      return 'Please enter NID number';
+    }
+
+    final nidRegex = RegExp(r'^[0-9]{10}$');
+
+    if (!nidRegex.hasMatch(value)) {
+      return "Enter a valid NID number";
+    }
+
+    return null;
+  }
+
 }

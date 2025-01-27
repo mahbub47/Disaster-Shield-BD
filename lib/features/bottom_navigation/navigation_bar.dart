@@ -26,7 +26,7 @@ class BottomNavigationMenu extends StatelessWidget {
               NavigationDestination(
                   icon: Icon(Icons.book_outlined), label: "Training"),
               NavigationDestination(
-                  icon: Icon(Icons.handshake_outlined), label: "Donation"),
+                  icon: Icon(Icons.volunteer_activism_outlined), label: "Donation"),
             ]),
       ),
       body: Obx(() => controller.screens[controller.currentIndex.value]),
