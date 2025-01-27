@@ -1,6 +1,7 @@
 import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/onboarding/welcome_screen.dart';
 import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
+import 'package:disaster_shield_bd/repository/user/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -18,6 +19,7 @@ class AthenticationRepository extends GetxController {
   RxString verificationid = ''.obs;
 
   User? get authUser => _auth.currentUser;
+  final userRepository = Get.put(UserRepository());
 
   @override
   void onReady() {
@@ -101,6 +103,25 @@ class AthenticationRepository extends GetxController {
   Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
     try{
       return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch(_) {
+      throw "Firebase Auth Exception";
+    } on FirebaseException catch(_) {
+      throw "Firebase Exception";
+    } on FormatException catch(_){
+      throw "Format Exception";
+    } on PlatformException catch(_) {
+      throw "Platform Exception";
+    } catch (_) {
+      throw "Something went wrong";
+    }
+  }
+
+  Future<void> deleteUserAccount() async {
+    try{
+      await userRepository
+          .deleteUserRecords(AthenticationRepository.instance.authUser!.uid);
+      await _auth.currentUser!.delete();
+      deviceStorage.erase();
     } on FirebaseAuthException catch(_) {
       throw "Firebase Auth Exception";
     } on FirebaseException catch(_) {

@@ -2,6 +2,7 @@ import 'package:disaster_shield_bd/common/widgets/common_bg_shape.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/emergency_contact_add.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_checklist/controllers/emergency_checklist_controller.dart';
+import 'package:disaster_shield_bd/features/home/controllers/delete_user_controller.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_item_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_profile_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_screen_features_box.dart';
@@ -24,6 +25,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(UserController());
     final checklistController = ChecklistController.instance;
+    final deleteUserController = Get.put(DeleteUserController());
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -74,13 +77,21 @@ class HomeScreen extends StatelessWidget {
                       DrawerItemWidget(
                         icon: Iconsax.call,
                         label: "Emergency contact",
-                        ontap: () {Get.to(() => const EmergencyContactAdd());},
+                        ontap: () {
+                          Get.to(() => const EmergencyContactAdd());
+                        },
                       ),
                       DrawerItemWidget(
-                        icon: Iconsax.user,
-                        label: "About us",
+                        icon: Iconsax.location,
+                        label: "Update Location",
                         ontap: () {},
                       ),
+                      DrawerItemWidget(
+                        icon: Iconsax.password_check,
+                        label: "Change password",
+                        ontap: () {},
+                      ),
+                      const Divider(),
                       DrawerItemWidget(
                         icon: Iconsax.logout,
                         label: "Logout",
@@ -90,7 +101,14 @@ class HomeScreen extends StatelessWidget {
                           Get.offAll(() => const LoginWithEmailScreen());
                         },
                       ),
-                      const Divider(),
+                      DrawerItemWidget(
+                        color: DColors.redAlert,
+                        icon: Iconsax.profile_delete,
+                        label: "Delete account",
+                        ontap: () {
+                          deleteUserController.deletUser();
+                        },
+                      ),
                     ],
                   ),
                 )
@@ -102,5 +120,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
