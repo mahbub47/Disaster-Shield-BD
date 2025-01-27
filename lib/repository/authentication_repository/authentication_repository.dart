@@ -17,6 +17,8 @@ class AthenticationRepository extends GetxController {
   final _auth = FirebaseAuth.instance;
   RxString verificationid = ''.obs;
 
+  User? get authUser => _auth.currentUser;
+
   @override
   void onReady() {
     FlutterNativeSplash.remove();

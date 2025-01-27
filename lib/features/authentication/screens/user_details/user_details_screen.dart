@@ -9,7 +9,7 @@ class UserDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UserDetailsController());
+    Get.put(UserDetailsController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(

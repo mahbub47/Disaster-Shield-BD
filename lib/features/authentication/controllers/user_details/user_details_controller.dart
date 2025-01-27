@@ -1,4 +1,3 @@
-import 'package:disaster_shield_bd/features/authentication/controllers/otp/phone_controller.dart';
 import 'package:disaster_shield_bd/features/authentication/models/user_model.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/emergency_contact_add.dart';
 import 'package:disaster_shield_bd/repository/authentication_repository/authentication_repository.dart';
@@ -17,7 +16,6 @@ class UserDetailsController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   final userDetailsFormkey = GlobalKey<FormState>();
-  final phone = '+880${PhoneController.instance.phone.text.trim()}';
 
   Future<void> signUp() async {
     try {
@@ -32,13 +30,20 @@ class UserDetailsController extends GetxController {
           .registerWithEmailAndPassword(
           email.text.trim(), password.text.trim());
 
-      final newUser = UserModel(id: userCredential.user!.uid,
-          username: username.text.trim(),
-          division: division.text.trim(),
-          district: district.text.trim(),
-          email: email.text.trim(),
-          password: password.text.trim(),
-          phone: phone);
+      final newUser = UserModel(
+        id: userCredential.user!.uid,
+        username: username.text.trim(),
+        division: division.text.trim(),
+        district: district.text.trim(),
+        email: email.text.trim(),
+        password: password.text.trim(),
+        phone: '',
+        role: 'User',
+        nid: '',
+        organization: '',
+        emergencyContact: '',
+        emergencyMessage: '',
+      );
 
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecords(newUser);

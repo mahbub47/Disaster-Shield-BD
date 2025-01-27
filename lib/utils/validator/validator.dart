@@ -14,7 +14,7 @@ class DValidator {
       return 'Please enter a phone number';
     }
 
-    final phoneRegex = RegExp(r'^1([37956])\d{8}$');
+    final phoneRegex = RegExp(r'^\+8801([37956])\d{8}$');
     
     if (!phoneRegex.hasMatch(value)) {
       return "Enter a valid number";

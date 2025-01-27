@@ -1,9 +1,11 @@
 import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/widgets/add_emergency_submit_button.dart';
+import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/constants/sizes.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:disaster_shield_bd/utils/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EmergencyContactAdd extends StatelessWidget {
   const EmergencyContactAdd({super.key});
@@ -26,7 +28,7 @@ class EmergencyContactAdd extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      "Emergency contact",
+                      "Your phone",
                       style: DTextTheme.lightTextTheme.headlineLarge,
                       textAlign: TextAlign.center,
                     ),
@@ -47,6 +49,22 @@ class EmergencyContactAdd extends StatelessWidget {
                           hintText: "Enter phone number",
                           hintStyle:
                               TextStyle(fontSize: 12, color: DColors.gray))),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    "Emergency contact",
+                    style: DTextTheme.lightTextTheme.labelMedium,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  TextFormField(
+                      keyboardType: TextInputType.name,
+                      decoration: const InputDecoration(
+                          hintText: "Enter phone number",
+                          hintStyle:
+                          TextStyle(fontSize: 12, color: DColors.gray))),
                   const SizedBox(
                     height: 20,
                   ),
@@ -76,7 +94,7 @@ class EmergencyContactAdd extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 120),
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Get.to(() => const BottomNavigationMenu()); },
                       child: Text(
                         "Skip",
                         style: DTextTheme.lightTextTheme.labelMedium,
