@@ -1,5 +1,4 @@
 import 'package:disaster_shield_bd/common/widgets/common_bg_shape.dart';
-import 'package:disaster_shield_bd/features/authentication/screens/emergency_contact_add/emergency_contact_add.dart';
 import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_checklist/controllers/emergency_checklist_controller.dart';
 import 'package:disaster_shield_bd/features/home/controllers/delete_user_controller.dart';
