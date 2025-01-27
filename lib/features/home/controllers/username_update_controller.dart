@@ -27,7 +27,7 @@ class UsernameUpdateController extends GetxController {
 
   Future<void> updateUsernameAndPhone() async{
     try {
-      FullScreenLoader.openLoadingDialog("Updating you information");
+      FullScreenLoader.openLoadingDialog("Updating your information");
 
       if (!updateUsernameFormKey.currentState!.validate()) {
         FullScreenLoader.stopLoading();

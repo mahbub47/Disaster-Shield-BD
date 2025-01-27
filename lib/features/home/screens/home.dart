@@ -3,6 +3,7 @@ import 'package:disaster_shield_bd/features/authentication/screens/emergency_con
 import 'package:disaster_shield_bd/features/authentication/screens/login_with_email/login_with_email_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_checklist/controllers/emergency_checklist_controller.dart';
 import 'package:disaster_shield_bd/features/home/controllers/delete_user_controller.dart';
+import 'package:disaster_shield_bd/features/home/screens/update_emergency_contact_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_item_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/drawer_profile_widget.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_screen_features_box.dart';
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                         icon: Iconsax.call,
                         label: "Emergency contact",
                         ontap: () {
-                          Get.to(() => const EmergencyContactAdd());
+                          Get.to(() => const UpdateEmergencyContactScreen());
                         },
                       ),
                       DrawerItemWidget(
