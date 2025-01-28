@@ -12,7 +12,7 @@ class DeleteUserController extends GetxController {
   Future<void> deletUser() async {
     try {
       ConfirmPopup.showConfirmPopup(
-          "Message",
+          "Warning",
           "This will permanently delete your data",
               () async {FullScreenLoader.openLoadingDialog("Deleting user");
             await authRepository.deleteUserAccount();

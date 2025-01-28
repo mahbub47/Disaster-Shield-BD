@@ -13,9 +13,6 @@ class MedicalSupportController extends GetxController {
       final snapshot = await _hospitalsRef.get();
       final data = snapshot.value;
 
-      // Clear the previous list
-      // hospitalList.clear();
-
       if (data != null) {
         if (data is List) {
           // If the data is a List
