@@ -1,4 +1,5 @@
 import 'package:disaster_shield_bd/features/emergency_checklist/screens/emergency_checklist_screen.dart';
+import 'package:disaster_shield_bd/features/emergency_hotline/screens/hotline_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_feature_card.dart';
 import 'package:disaster_shield_bd/features/medical_support/screens/medical_support_screen.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
@@ -42,12 +43,12 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     HomepageFeatureCard(
                       featureName: "Medical\nSupport",
                       icon: Iconsax.shield_tick,
-                      ontap: () {Get.to(() => MedicalSupportScreen(userDistrict: "Sylhet",));},
+                      ontap: () {Get.to(() => const MedicalSupportScreen());},
                     ),
                     HomepageFeatureCard(
                       featureName: "Emergency\nhotlines",
                       icon: Iconsax.call,
-                      ontap: () {},
+                      ontap: () {Get.to(() => const HotlineScreen());},
                     ),
                     HomepageFeatureCard(
                       featureName: "Emergency\nchecklist",

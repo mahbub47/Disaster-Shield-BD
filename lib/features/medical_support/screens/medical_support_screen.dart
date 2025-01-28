@@ -1,15 +1,17 @@
 import 'package:disaster_shield_bd/features/medical_support/controllers/medical_support_controller.dart';
+import 'package:disaster_shield_bd/features/user_information/controllers/user_controller.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MedicalSupportScreen extends StatelessWidget {
-  final String userDistrict;
 
-  const MedicalSupportScreen({super.key, required this.userDistrict});
+  const MedicalSupportScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userController = UserController.instance;
+    final userDistrict = userController.user.value.district;
     // Initialize the controller
     final hospitalController = Get.put(MedicalSupportController());
     hospitalController.fetchHospitalsByDistrict(userDistrict);
