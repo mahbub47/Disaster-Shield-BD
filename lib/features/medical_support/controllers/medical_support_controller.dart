@@ -6,7 +6,7 @@ class MedicalSupportController extends GetxController {
   final DatabaseReference _hospitalsRef = FirebaseDatabase.instance.ref('hospitals');
   RxList<Map<String, dynamic>> hospitalList = <Map<String, dynamic>>[].obs;
 
-  /// Fetch hospitals based on the user's district
+  // Fetch hospitals based on the user's district
   Future<void> fetchHospitalsByDistrict(String userDistrict) async {
     try {
       // Fetch data from Firebase

@@ -2,6 +2,7 @@ import 'package:disaster_shield_bd/features/emergency_checklist/screens/emergenc
 import 'package:disaster_shield_bd/features/emergency_hotline/screens/hotline_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_feature_card.dart';
 import 'package:disaster_shield_bd/features/medical_support/screens/medical_support_screen.dart';
+import 'package:disaster_shield_bd/features/shelter_locations/screens/shelter_location_screen.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     HomepageFeatureCard(
                       featureName: "Shelter\nlocations",
                       icon: Iconsax.home_hashtag,
-                      ontap: () {},
+                      ontap: () {Get.to(() => const ShelterLocationScreen());},
                     ),
                     HomepageFeatureCard(
                       featureName: "Medical\nSupport",
