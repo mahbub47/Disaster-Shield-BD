@@ -1,4 +1,4 @@
-import 'package:disaster_shield_bd/features/home/controllers/update_emergency_contact_controller.dart';
+import 'package:disaster_shield_bd/features/home/controllers/update_location_controller.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/constants/sizes.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
@@ -8,16 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class UpdateEmergencyContactScreen extends StatelessWidget {
-  const UpdateEmergencyContactScreen({super.key});
+class UpdateLocationScreen extends StatelessWidget {
+  const UpdateLocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UpdateEmergencyContactController());
+    final controller = Get.put(UpdateLocationController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("Update Emergency contact"),
+        title: const Text("Update Location"),
         centerTitle: false,
         backgroundColor: DColors.primary,
       ),
@@ -25,7 +25,7 @@ class UpdateEmergencyContactScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: DSizes.defaultSpace),
           child: Form(
-            key: controller.updateEmergencyContactFormKey,
+            key: controller.updateLocationFormKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,43 +33,46 @@ class UpdateEmergencyContactScreen extends StatelessWidget {
                   height: 50,
                 ),
                 Text(
-                  "Emergency contact",
+                  "Division",
                   style: DTextTheme.lightTextTheme.labelMedium,
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 TextFormField(
-                  validator: (value) => DValidator.validatePhoneNumber(value),
-                  controller: controller.emergencyPhone,
-                    keyboardType: TextInputType.phone,
+                  validator: (value) => DValidator.validateEmptiTextField("Division", value),
+                  controller: controller.userDivision,
+                    keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
                         prefixIcon: Icon(
-                          Iconsax.call,
+                          Iconsax.map,
                           color: DColors.gray,
                         ),
-                        hintText: "Enter phone number",
+                        hintText: "Enter division name",
                         hintStyle:
-                        TextStyle(fontSize: 12, color: DColors.gray))),
+                            TextStyle(fontSize: 12, color: DColors.gray))),
                 const SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "Emergency message",
+                  "District",
                   style: DTextTheme.lightTextTheme.labelMedium,
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 TextFormField(
-                  validator: (value) => DValidator.validateEmptiTextField("Message", value),
-                  controller: controller.emergencyMessage,
-                    keyboardType: TextInputType.text,
-                    maxLines: 3,
+                  validator: (value) => DValidator.validateEmptiTextField("District", value),
+                  controller: controller.userDistrict,
+                    keyboardType: TextInputType.phone,
                     decoration: const InputDecoration(
-                        hintText: "Write something",
+                        prefixIcon: Icon(
+                          Iconsax.location,
+                          color: DColors.gray,
+                        ),
+                        hintText: "Enter district name",
                         hintStyle:
-                        TextStyle(fontSize: 12, color: DColors.gray))),
+                            TextStyle(fontSize: 12, color: DColors.gray))),
               ],
             ),
           ),
@@ -82,7 +85,7 @@ class UpdateEmergencyContactScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 56),
                 child: ElevatedButton(
                     onPressed: () {
-                      controller.updateEmergencyContact();
+                      controller.updateUserLocation();
                     },
                     child: const Text(
                       "Update",

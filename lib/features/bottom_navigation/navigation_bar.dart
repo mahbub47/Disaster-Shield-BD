@@ -12,21 +12,24 @@ class BottomNavigationMenu extends StatelessWidget {
     final controller = Get.put(NavigationController());
     return Scaffold(
       bottomNavigationBar: Obx(
-          () => NavigationBar(
+        () => NavigationBar(
             height: 80,
             elevation: 20,
             shadowColor: DColors.dark,
             backgroundColor: DColors.light,
             selectedIndex: controller.currentIndex.value,
-            onDestinationSelected: (index) => controller.currentIndex.value = index,
+            onDestinationSelected: (index) =>
+                controller.currentIndex.value = index,
             destinations: const [
               NavigationDestination(icon: Icon(Iconsax.home), label: "Home"),
-              NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
+              NavigationDestination(
+                  icon: Icon(Icons.map_outlined), label: "Map"),
               Text(""),
               NavigationDestination(
                   icon: Icon(Icons.book_outlined), label: "Training"),
               NavigationDestination(
-                  icon: Icon(Icons.volunteer_activism_outlined), label: "Donation"),
+                  icon: Icon(Icons.volunteer_activism_outlined),
+                  label: "Donation"),
             ]),
       ),
       body: Obx(() => controller.screens[controller.currentIndex.value]),
@@ -39,13 +42,15 @@ class BottomNavigationMenu extends StatelessWidget {
           backgroundColor: DColors.redAlert,
           foregroundColor: DColors.light,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-            side: const BorderSide(
-              width: 5,
-              color: DColors.accent
-            )
+              borderRadius: BorderRadius.circular(50),
+              side: const BorderSide(width: 5, color: DColors.accent)),
+          child: const Text(
+            "SOS",
+            style: TextStyle(
+                color: DColors.light,
+                fontSize: 20,
+                fontWeight: FontWeight.w600),
           ),
-          child: const Icon(Icons.add_alert),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

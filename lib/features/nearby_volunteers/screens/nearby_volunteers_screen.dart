@@ -1,5 +1,4 @@
 import 'package:disaster_shield_bd/features/nearby_volunteers/controllers/nearby_volunteer_controller.dart';
-import 'package:disaster_shield_bd/features/user_information/controllers/user_controller.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,10 +10,8 @@ class NearbyVolunteersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final userController = UserController.instance;
-    final userDistrict = userController.user.value.district;
     final controller = Get.put(NearbyVolunteerController());
-    controller.fetchVolunteers(userDistrict);
+    final userDistrict = controller.userDistrict;
 
     return Scaffold(
       appBar: AppBar(

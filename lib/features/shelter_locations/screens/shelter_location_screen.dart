@@ -10,11 +10,9 @@ class ShelterLocationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userController = UserController.instance;
-    final userDistrict = userController.user.value.district;
     // Initialize the controller
     final hospitalController = Get.put(MedicalSupportController());
-    hospitalController.fetchHospitalsByDistrict(userDistrict);
+    final userDistrict = hospitalController.userDistrict;
 
     return Scaffold(
       appBar: AppBar(

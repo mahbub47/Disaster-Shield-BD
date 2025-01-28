@@ -1,3 +1,4 @@
+import 'package:disaster_shield_bd/features/user_information/controllers/user_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -5,6 +6,14 @@ import 'package:firebase_database/firebase_database.dart';
 class MedicalSupportController extends GetxController {
   final DatabaseReference _hospitalsRef = FirebaseDatabase.instance.ref('hospitals');
   RxList<Map<String, dynamic>> hospitalList = <Map<String, dynamic>>[].obs;
+  final userDistrict = UserController.instance.userDistrict;
+
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchHospitalsByDistrict(userDistrict);
+  }
 
   // Fetch hospitals based on the user's district
   Future<void> fetchHospitalsByDistrict(String userDistrict) async {

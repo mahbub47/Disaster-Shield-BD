@@ -6,6 +6,7 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = UserRepository.instance;
+  String get userDistrict => user.value.district;
 
   @override
   void onInit() {

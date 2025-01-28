@@ -30,7 +30,7 @@ class VolunteerRegistrationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 20,
+                  height: 50,
                 ),
                 Text(
                   "Your NID Number",
