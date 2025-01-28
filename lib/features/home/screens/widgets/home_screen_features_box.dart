@@ -1,5 +1,6 @@
 import 'package:disaster_shield_bd/features/emergency_checklist/screens/emergency_checklist_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_hotline/screens/hotline_screen.dart';
+import 'package:disaster_shield_bd/features/evacuation_guide/screens/evacuation_guide_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_feature_card.dart';
 import 'package:disaster_shield_bd/features/medical_support/screens/medical_support_screen.dart';
 import 'package:disaster_shield_bd/features/shelter_locations/screens/shelter_location_screen.dart';
@@ -59,7 +60,7 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     HomepageFeatureCard(
                       featureName: "Evacuation\nguide",
                       icon: Iconsax.book,
-                      ontap: () {},
+                      ontap: () {Get.to(() => const EvacuationGuideScreen());},
                     ),
                     HomepageFeatureCard(
                       featureName: "Nearby\nvolunteer",
