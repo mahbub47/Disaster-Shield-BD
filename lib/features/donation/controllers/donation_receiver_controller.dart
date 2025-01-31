@@ -39,6 +39,7 @@ class DonationReceiverController extends GetxController {
       }
 
       if(imageFiles.isEmpty) {
+        FullScreenLoader.stopLoading();
         Get.snackbar("Warning", "Please enter at least one image");
         return;
       }

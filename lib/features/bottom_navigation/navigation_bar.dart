@@ -21,7 +21,7 @@ class BottomNavigationMenu extends StatelessWidget {
             onDestinationSelected: (index) =>
                 controller.currentIndex.value = index,
             destinations: const [
-              NavigationDestination(icon: Icon(Iconsax.home), label: "Home"),
+              NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
               NavigationDestination(
                   icon: Icon(Icons.group_add_outlined), label: "Events"),
               Text(""),

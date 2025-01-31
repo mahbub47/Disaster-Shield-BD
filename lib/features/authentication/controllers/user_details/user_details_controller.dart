@@ -5,6 +5,7 @@ import 'package:disaster_shield_bd/repository/user/user_repository.dart';
 import 'package:disaster_shield_bd/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class UserDetailsController extends GetxController {
   static UserDetailsController get instance => Get.find();
@@ -16,6 +17,7 @@ class UserDetailsController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   final userDetailsFormkey = GlobalKey<FormState>();
+  final localStorage = GetStorage();
 
   Future<void> signUp() async {
     try {
@@ -48,6 +50,9 @@ class UserDetailsController extends GetxController {
       final userRepository = UserRepository.instance;
       await userRepository.saveUserRecords(newUser);
 
+      localStorage.write("USER_EMAIL", email.text.trim());
+      localStorage.write("USER_PASSWORD", password.text.trim());
+
       FullScreenLoader.stopLoading();
 
       Get.snackbar("Success", "Your information stored successfully");
@@ -55,6 +60,7 @@ class UserDetailsController extends GetxController {
       Get.to(() => const EmergencyContactAdd());
 
     } catch (e) {
+      FullScreenLoader.stopLoading();
       Get.snackbar("Something went wrong", e.toString());
     }
   }

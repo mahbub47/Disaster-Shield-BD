@@ -52,7 +52,7 @@ class EmergencyContactAdd extends StatelessWidget {
                       TextFormField(
                           validator: (value) => DValidator.validatePhoneNumber(value),
                           controller: controller.userPhone,
-                          keyboardType: TextInputType.name,
+                          keyboardType: TextInputType.phone,
                           decoration: const InputDecoration(
                               hintText: "Enter phone number",
                               hintStyle:
@@ -70,7 +70,7 @@ class EmergencyContactAdd extends StatelessWidget {
                       TextFormField(
                           validator: (value) => DValidator.validatePhoneNumber(value),
                           controller: controller.emergencyPhone,
-                          keyboardType: TextInputType.name,
+                          keyboardType: TextInputType.phone,
                           decoration: const InputDecoration(
                               hintText: "Enter phone number",
                               hintStyle:
@@ -90,7 +90,7 @@ class EmergencyContactAdd extends StatelessWidget {
                               DValidator.validateEmptiTextField("Message", value),
                           controller: controller.emergencyMessage,
                           maxLines: 3,
-                          keyboardType: TextInputType.streetAddress,
+                          keyboardType: TextInputType.text,
                           decoration: const InputDecoration(
                               hintText: "Enter emergency message",
                               hintStyle:

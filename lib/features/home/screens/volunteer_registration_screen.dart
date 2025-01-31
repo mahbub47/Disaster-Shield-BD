@@ -66,7 +66,7 @@ class VolunteerRegistrationScreen extends StatelessWidget {
                   enabled: controller.isVolunteer.value == true ? false : true,
                   validator: (value) => DValidator.validateEmptiTextField("Organization", value),
                   controller: controller.organization,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
                         Iconsax.building,
