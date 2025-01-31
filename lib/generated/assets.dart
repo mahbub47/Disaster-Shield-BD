@@ -7,6 +7,7 @@ class Assets {
   static const String fontsPoppinsMedium = 'assets/fonts/Poppins-Medium.ttf';
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
+  static const String imagesDonor = 'assets/images/donor.png';
   static const String imagesHomeimage = 'assets/images/homeimage.png';
   static const String imagesLoginimage = 'assets/images/loginimage.png';
   static const String imagesOnboarding01 = 'assets/images/onboarding01.png';
@@ -15,6 +16,7 @@ class Assets {
   static const String imagesOnboarding04 = 'assets/images/onboarding04.png';
   static const String imagesOtpscreen = 'assets/images/otpscreen.png';
   static const String imagesPhonenumberscreen = 'assets/images/phonenumberscreen.png';
+  static const String imagesReciever = 'assets/images/reciever.png';
   static const String logoLogo = 'assets/logo/logo.png';
   static const String logoLogoTransparent = 'assets/logo/logo_transparent.png';
 

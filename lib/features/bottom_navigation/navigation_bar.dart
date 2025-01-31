@@ -23,10 +23,10 @@ class BottomNavigationMenu extends StatelessWidget {
             destinations: const [
               NavigationDestination(icon: Icon(Iconsax.home), label: "Home"),
               NavigationDestination(
-                  icon: Icon(Icons.map_outlined), label: "Map"),
+                  icon: Icon(Icons.group_add_outlined), label: "Events"),
               Text(""),
               NavigationDestination(
-                  icon: Icon(Icons.book_outlined), label: "Training"),
+                  icon: Icon(Icons.handshake_outlined), label: "Volunteers"),
               NavigationDestination(
                   icon: Icon(Icons.volunteer_activism_outlined),
                   label: "Donation"),

@@ -64,7 +64,7 @@ class UpdateLocationScreen extends StatelessWidget {
                 TextFormField(
                   validator: (value) => DValidator.validateEmptiTextField("District", value),
                   controller: controller.userDistrict,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Iconsax.location,

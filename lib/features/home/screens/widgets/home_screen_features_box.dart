@@ -64,9 +64,9 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                       ontap: () {Get.to(() => const EvacuationGuideScreen());},
                     ),
                     HomepageFeatureCard(
-                      featureName: "Nearby\nvolunteer",
-                      icon: Iconsax.heart,
-                      ontap: () {Get.to(() => const NearbyVolunteersScreen());},
+                      featureName: "Disaster\nTraining",
+                      icon: Icons.book_outlined,
+                      ontap: () {},
                     ),
                   ],
                 ),
