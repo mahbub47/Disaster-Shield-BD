@@ -17,101 +17,104 @@ class EmergencyContactAdd extends StatelessWidget {
     final controller = Get.put(AddEmergencyContactController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: DSizes.defaultSpace),
-            child: Form(
-              key: controller.addEmergencyContactFormKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 100,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: DDeviceUtils.getScreenHeight() - DDeviceUtils.getScreenHeight() * 0.15,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: DSizes.defaultSpace),
+                child: Form(
+                  key: controller.addEmergencyContactFormKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 100,
+                      ),
+                      Center(
+                        child: Text(
+                          "Emergency contact",
+                          style: DTextTheme.lightTextTheme.headlineLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Text(
+                        "Your phone",
+                        style: DTextTheme.lightTextTheme.labelMedium,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      TextFormField(
+                          validator: (value) => DValidator.validatePhoneNumber(value),
+                          controller: controller.userPhone,
+                          keyboardType: TextInputType.name,
+                          decoration: const InputDecoration(
+                              hintText: "Enter phone number",
+                              hintStyle:
+                                  TextStyle(fontSize: 12, color: DColors.gray))),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        "Emergency contact",
+                        style: DTextTheme.lightTextTheme.labelMedium,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      TextFormField(
+                          validator: (value) => DValidator.validatePhoneNumber(value),
+                          controller: controller.emergencyPhone,
+                          keyboardType: TextInputType.name,
+                          decoration: const InputDecoration(
+                              hintText: "Enter phone number",
+                              hintStyle:
+                                  TextStyle(fontSize: 12, color: DColors.gray))),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Emergency message",
+                        style: DTextTheme.lightTextTheme.labelMedium,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      TextFormField(
+                          validator: (value) =>
+                              DValidator.validateEmptiTextField("Message", value),
+                          controller: controller.emergencyMessage,
+                          maxLines: 3,
+                          keyboardType: TextInputType.streetAddress,
+                          decoration: const InputDecoration(
+                              hintText: "Enter emergency message",
+                              hintStyle:
+                                  TextStyle(fontSize: 12, color: DColors.gray))),
+                    ],
                   ),
-                  Center(
-                    child: Text(
-                      "Emergency contact",
-                      style: DTextTheme.lightTextTheme.headlineLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    "Your phone",
-                    style: DTextTheme.lightTextTheme.labelMedium,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  TextFormField(
-                    validator: (value) => DValidator.validatePhoneNumber(value),
-                    controller: controller.userPhone,
-                      keyboardType: TextInputType.name,
-                      decoration: const InputDecoration(
-                          hintText: "Enter phone number",
-                          hintStyle:
-                              TextStyle(fontSize: 12, color: DColors.gray))),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    "Emergency contact",
-                    style: DTextTheme.lightTextTheme.labelMedium,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  TextFormField(
-                    validator: (value) => DValidator.validatePhoneNumber(value),
-                    controller: controller.emergencyPhone,
-                      keyboardType: TextInputType.name,
-                      decoration: const InputDecoration(
-                          hintText: "Enter phone number",
-                          hintStyle:
-                          TextStyle(fontSize: 12, color: DColors.gray))),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Emergency message",
-                    style: DTextTheme.lightTextTheme.labelMedium,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  TextFormField(
-                    validator: (value) => DValidator.validateEmptiTextField("Message", value),
-                    controller: controller.emergencyMessage,
-                      maxLines: 3,
-                      keyboardType: TextInputType.streetAddress,
-                      decoration: const InputDecoration(
-                          hintText: "Enter emergency message",
-                          hintStyle:
-                              TextStyle(fontSize: 12, color: DColors.gray))),
-                ],
+                ),
               ),
             ),
-          ),
-          const AddEmergencySubmitButton(),
-          Positioned(
-            bottom: DDeviceUtils.getBottomNavigationBarHeight() - 20,
-              child: SizedBox(
-                width: DDeviceUtils.getScreenWidth(),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
-                  child: TextButton(
-                      onPressed: () {Get.offAll(() => const BottomNavigationMenu()); },
-                      child: Text(
-                        "Skip",
-                        style: DTextTheme.lightTextTheme.labelMedium,
-                      )),
-                ),
-              ))
-        ],
+            const AddEmergencySubmitButton(),
+            SizedBox(
+              width: DDeviceUtils.getScreenWidth(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 120),
+                child: TextButton(
+                    onPressed: () {Get.offAll(() => const BottomNavigationMenu()); },
+                    child: Text(
+                      "Skip",
+                      style: DTextTheme.lightTextTheme.labelMedium,
+                    )),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

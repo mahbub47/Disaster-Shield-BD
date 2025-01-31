@@ -10,20 +10,17 @@ class UserDetailsSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: DDeviceUtils.getBottomNavigationBarHeight() + 10,
-      child: SizedBox(
-          width: DDeviceUtils.getScreenWidth(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 56),
-            child: ElevatedButton(
-                onPressed: () {
-                  controller.signUp();
-                },
-                child: const Text(
-                  "Next",
-                )),
-          )),
-    );
+    return SizedBox(
+        width: DDeviceUtils.getScreenWidth(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 56),
+          child: ElevatedButton(
+              onPressed: () {
+                controller.signUp();
+              },
+              child: const Text(
+                "Next",
+              )),
+        ));
   }
 }
