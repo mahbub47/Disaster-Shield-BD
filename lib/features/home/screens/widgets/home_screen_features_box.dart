@@ -1,9 +1,9 @@
+import 'package:disaster_shield_bd/features/disaster_training/screens/training_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_checklist/screens/emergency_checklist_screen.dart';
 import 'package:disaster_shield_bd/features/emergency_hotline/screens/hotline_screen.dart';
 import 'package:disaster_shield_bd/features/evacuation_guide/screens/evacuation_guide_screen.dart';
 import 'package:disaster_shield_bd/features/home/screens/widgets/home_feature_card.dart';
 import 'package:disaster_shield_bd/features/medical_support/screens/medical_support_screen.dart';
-import 'package:disaster_shield_bd/features/nearby_volunteers/screens/nearby_volunteers_screen.dart';
 import 'package:disaster_shield_bd/features/shelter_locations/screens/shelter_location_screen.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:disaster_shield_bd/utils/device/device_utility.dart';
@@ -66,7 +66,7 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     HomepageFeatureCard(
                       featureName: "Disaster\nTraining",
                       icon: Icons.book_outlined,
-                      ontap: () {},
+                      ontap: () {Get.to(() => const TrainingScreen());},
                     ),
                   ],
                 ),
