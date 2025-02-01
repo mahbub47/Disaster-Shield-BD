@@ -29,8 +29,6 @@ class DonorScreen extends StatelessWidget {
               itemCount: controller.requests.length,
               itemBuilder: (context, index) {
                 final request = controller.requests[index];
-                final List<String> imageUrls =
-                List<String>.from(request['Images'] ?? []);
 
                 return Card(
                   elevation: 10,
