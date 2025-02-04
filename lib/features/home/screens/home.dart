@@ -22,6 +22,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../user_information/controllers/user_controller.dart';
+import '../controllers/weather_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,7 +34,6 @@ class HomeScreen extends StatelessWidget {
     final donationRepository = Get.put(DonationRepository());
     final deleteUserController = Get.put(DeleteUserController());
     final donationController = Get.put(DonationController());
-
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
       body: SizedBox(
         height: DDeviceUtils.getScreenHeight(),
         width: DDeviceUtils.getScreenWidth(),
-        child: const Stack(
+        child:  const Stack(
           children: [
             CommonBGShape(),
             HomeScreenTempWidget(),

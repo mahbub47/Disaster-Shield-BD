@@ -52,6 +52,7 @@ class UserDetailsController extends GetxController {
 
       localStorage.write("USER_EMAIL", email.text.trim());
       localStorage.write("USER_PASSWORD", password.text.trim());
+      localStorage.write("USER_DISTRICT", district.text.trim());
 
       FullScreenLoader.stopLoading();
 
