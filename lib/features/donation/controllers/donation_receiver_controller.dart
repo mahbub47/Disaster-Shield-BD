@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
+import 'package:disaster_shield_bd/features/donation/controllers/donation_controller.dart';
 import 'package:disaster_shield_bd/features/donation/models/donation_model.dart';
 import 'package:disaster_shield_bd/features/donation/screens/donation_main_screen.dart';
 import 'package:disaster_shield_bd/features/user_information/controllers/user_controller.dart';
@@ -28,6 +29,7 @@ class DonationReceiverController extends GetxController {
   final ImagePicker imagePicker = ImagePicker();
   final donationRepository = Get.put(DonationRepository());
   final userController = UserController.instance;
+  final donationController = Get.put(DonationController());
 
   Future<void> donationRequest() async {
     try {
@@ -64,6 +66,16 @@ class DonationReceiverController extends GetxController {
 
       await donationRepository.saveUserReuest(newReq);
 
+      donationController.myReq.value.receiverName = receiverName.text.trim();
+      donationController.myReq.value.incidentType = incidentType.text.trim();
+      donationController.myReq.value.incidentDate = incidentDate.text.trim();
+      donationController.myReq.value.userDistrict = userController.user.value.district;
+      donationController.myReq.value.userDivision = userController.user.value.division;
+      donationController.myReq.value.bankName = bankName.text.trim();
+      donationController.myReq.value.bankAccountName = accountName.text.trim();
+      donationController.myReq.value.bankAccountNo = accountNumber.text.trim();
+      donationController.myReq.value.mobileBankingName = mobileBanking.text.trim();
+      donationController.myReq.value.mobileBankingPhone = mobileBankingPhone.text.trim();
 
       FullScreenLoader.stopLoading();
 

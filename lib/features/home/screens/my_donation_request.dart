@@ -1,4 +1,6 @@
 import 'package:disaster_shield_bd/features/bottom_navigation/navigation_bar.dart';
+import 'package:disaster_shield_bd/features/donation/controllers/donation_controller.dart';
+import 'package:disaster_shield_bd/features/donation/models/donation_model.dart';
 import 'package:disaster_shield_bd/features/donation/screens/donation_screen/widgets/info_item.dart';
 import 'package:disaster_shield_bd/repository/authentication_repository/authentication_repository.dart';
 import 'package:disaster_shield_bd/repository/donation/donation_repository.dart';
@@ -128,6 +130,7 @@ class MyDonationRequest extends StatelessWidget {
                     onPressed: () {
                       donationRepository.deleteDonationRequest(
                           AthenticationRepository.instance.authUser!.uid);
+                      DonationController.instance.myReq.value = DonationModel.empty();
                       Get.snackbar("Deleted", "Your request has been deleted");
                       Get.off(() => const BottomNavigationMenu());
                     },

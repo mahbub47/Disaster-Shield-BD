@@ -38,7 +38,7 @@ class DonationMainScreen extends StatelessWidget {
                           style: const ButtonStyle(
                               padding: WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(horizontal: 40))),
-                          child: const Text("Receiver")),
+                          child: const Text("Receive")),
                       const SizedBox(height: 20,)
                     ],
                   ),
@@ -63,7 +63,7 @@ class DonationMainScreen extends StatelessWidget {
                           style: const ButtonStyle(
                               padding: WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(horizontal: 40))),
-                          child: const Text("Donor")),
+                          child: const Text("Donate")),
                       const SizedBox(height: 20,)
                     ],
                   ),
