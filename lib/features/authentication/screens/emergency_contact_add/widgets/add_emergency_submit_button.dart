@@ -8,20 +8,17 @@ class AddEmergencySubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = AddEmergencyContactController.instance;
-    return Positioned(
-      bottom: DDeviceUtils.getBottomNavigationBarHeight() + 30,
-      child: SizedBox(
-          width: DDeviceUtils.getScreenWidth(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 56),
-            child: ElevatedButton(
-                onPressed: () {
-                  controller.addEmergencyContact();
-                },
-                child: const Text(
-                  "Save",
-                )),
-          )),
-    );
+    return SizedBox(
+        width: DDeviceUtils.getScreenWidth(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 56),
+          child: ElevatedButton(
+              onPressed: () {
+                controller.addEmergencyContact();
+              },
+              child: const Text(
+                "Save",
+              )),
+        ));
   }
 }

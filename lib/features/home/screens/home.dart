@@ -22,7 +22,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../user_information/controllers/user_controller.dart';
-import '../controllers/weather_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,7 +30,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(UserController());
     final checklistController = ChecklistController.instance;
-    final donationRepository = Get.put(DonationRepository());
+    Get.put(DonationRepository());
     final deleteUserController = Get.put(DeleteUserController());
     final donationController = Get.put(DonationController());
 
@@ -44,12 +43,6 @@ class HomeScreen extends StatelessWidget {
           style: DTextTheme.lightTextTheme.headlineLarge!
               .apply(color: DColors.lightText),
         ),
-        actions: const [
-          Icon(Iconsax.notification),
-          SizedBox(
-            width: 10,
-          )
-        ],
       ),
       body: SizedBox(
         height: DDeviceUtils.getScreenHeight(),
@@ -78,11 +71,6 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       DrawerItemWidget(
-                        icon: Iconsax.global,
-                        label: "Language",
-                        ontap: () {},
-                      ),
-                      DrawerItemWidget(
                         icon: Iconsax.call,
                         label: "Emergency contact",
                         ontap: () {
@@ -91,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       DrawerItemWidget(
                         icon: Iconsax.location,
-                        label: "Update Location",
+                        label: "Location",
                         ontap: () {
                           Get.to(() => const UpdateLocationScreen());
                         },
