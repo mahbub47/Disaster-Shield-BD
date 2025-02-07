@@ -1,16 +1,21 @@
-import 'package:disaster_shield_bd/features/donation/controllers/donation_payment_controller.dart';
+import 'package:disaster_shield_bd/features/donation/controllers/payment_controller.dart';
+import 'package:disaster_shield_bd/features/donation/screens/donation_screen/sslcommerz_pay_info_screen.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
+import 'package:disaster_shield_bd/utils/device/device_utility.dart';
+import 'package:disaster_shield_bd/utils/validator/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DonationPaymentScreen extends StatelessWidget {
 
-  DonationPaymentScreen({super.key});
-
+  const DonationPaymentScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(DonationPaymentController());
+    final amountController = TextEditingController();
+    final paymentFormKey = GlobalKey<FormState>();
+    final paymentController = Get.put(PaymentController());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: DColors.primary,
         title: const Text("Donate"),
@@ -20,48 +25,53 @@ class DonationPaymentScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Enter Donation Amount",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 12.0),
-            TextField(
-              controller: controller.amountController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: "Enter amount",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+             Expanded(
+              child: Form(
+                key: paymentFormKey,
+                child: Column(
+                  children: [
+                    const Text(
+                      "Enter Donation Amount",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      validator: (value) => DValidator.validateEmptiTextField("amount", value),
+                      controller: amountController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter amount (e.g., 500 BDT)",
+                      ),
+                    ),
+                  ],
                 ),
-                prefixIcon: Icon(Icons.payment)
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 20),
             Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  String amount = controller.amountController.text.trim();
-                  if (amount.isNotEmpty) {
-                    controller.showConfirmationDialog(amount);
-                  } else {
-                    Get.snackbar("Error", "please enter amount");
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0,
-                    vertical: 12.0,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+              child: SizedBox(
+                width: DDeviceUtils.getScreenWidth(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 54),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (paymentFormKey.currentState!.validate()) {
+                        paymentController.amount.value = double.parse(amountController.text.trim());
+                        Get.to(() => const SslcommerzPayInfoScreen());
+                      }
+                      return;
+                    },
+                    child: const Text("Proceed to Payment"),
                   ),
                 ),
-                child: const Text("Confirm Donation"),
               ),
             ),
+            const SizedBox(height: 24),
           ],
         ),
       ),
     );
   }
 }
+
