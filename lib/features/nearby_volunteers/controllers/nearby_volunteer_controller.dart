@@ -20,8 +20,8 @@ class NearbyVolunteerController extends GetxController {
     try {
       final QuerySnapshot querySnapshot = await firestore
           .collection('Users')
-          .where('Role', isEqualTo: 'Volunteer') // Filter by role
-          .where('District', isEqualTo: userDistrict) // Match district
+          .where('Role', isEqualTo: 'Volunteer')
+          .where('District', isEqualTo: userDistrict)
           .get();
 
       // Map query results to a list

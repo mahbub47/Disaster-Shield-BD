@@ -3,6 +3,7 @@ import 'package:disaster_shield_bd/features/bottom_navigation/controllers/send_s
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class BottomNavigationMenu extends StatelessWidget {
   const BottomNavigationMenu({super.key});
@@ -22,14 +23,14 @@ class BottomNavigationMenu extends StatelessWidget {
             onDestinationSelected: (index) =>
                 controller.currentIndex.value = index,
             destinations: const [
-              NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+              NavigationDestination(icon: Icon(Iconsax.home), label: "Home"),
               NavigationDestination(
-                  icon: Icon(Icons.group_add_outlined), label: "Events"),
+                  icon: Icon(Iconsax.menu_board), label: "Events"),
               Text(""),
               NavigationDestination(
-                  icon: Icon(Icons.handshake_outlined), label: "Volunteers"),
+                  icon: Icon(Iconsax.security_user), label: "Volunteers"),
               NavigationDestination(
-                  icon: Icon(Icons.volunteer_activism_outlined),
+                  icon: Icon(Iconsax.heart_circle),
                   label: "Donation"),
             ]),
       ),

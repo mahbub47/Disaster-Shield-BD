@@ -60,12 +60,12 @@ class HomeScreenFeaturesBox extends StatelessWidget {
                     ),
                     HomepageFeatureCard(
                       featureName: "Evacuation\nguide",
-                      icon: Iconsax.book,
+                      icon: Iconsax.flag,
                       ontap: () {Get.to(() => const EvacuationGuideScreen());},
                     ),
                     HomepageFeatureCard(
                       featureName: "Disaster\nTraining",
-                      icon: Icons.book_outlined,
+                      icon: Iconsax.book,
                       ontap: () {Get.to(() => const TrainingScreen());},
                     ),
                   ],
