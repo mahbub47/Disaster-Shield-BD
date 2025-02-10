@@ -1,5 +1,6 @@
 import 'package:disaster_shield_bd/features/bottom_navigation/controllers/navigation_controller.dart';
 import 'package:disaster_shield_bd/features/bottom_navigation/controllers/send_sms_controller.dart';
+import 'package:disaster_shield_bd/features/user_information/controllers/user_controller.dart';
 import 'package:disaster_shield_bd/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class BottomNavigationMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     final smsController = Get.put(SendSmsController());
+    final userController = Get.put(UserController());
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
@@ -40,7 +42,7 @@ class BottomNavigationMenu extends StatelessWidget {
         height: 70,
         child: GestureDetector(
           onLongPress: () async{
-            await smsController.sendSMS("+8801704481125", "Help me");
+            await smsController.sendSMS(userController.user.value.emergencyContact, userController.user.value.emergencyMessage);
           },
           child: FloatingActionButton(
             elevation: 0,

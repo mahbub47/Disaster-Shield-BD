@@ -14,6 +14,7 @@ class SendSmsController extends GetxController {
     if (await canLaunchUrl(smsUri)) {
       await launchUrl(smsUri);
     } else {
+      Get.snackbar("Failed", "Could not sent SMS");
       throw 'Could not launch SMS';
     }
   }
